@@ -6,7 +6,7 @@ export default function Navbar(props) {
   return (
     <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
       <div className="container-fluid">
-        <a className="navbar-brand" href="/">{props.title}</a>
+        <Link className="navbar-brand" to="/">{props.title}</Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -19,7 +19,10 @@ export default function Navbar(props) {
               <Link className="nav-link" to="/About">{props.about}</Link>
             </li>
           </ul>
-          
+          <div className="d-flex">
+            <div className='bg-primary rounded mx-2' style={{ height: '30px', width: '30px', cursor: 'pointer' }} onClick={() => props.toggleMode('primary')}></div>
+          </div>
+
           <div className={`form-check form-switch text-${props.mode === 'light' ? 'dark' : 'light'}`}>
             <input
               className="form-check-input"
@@ -28,7 +31,7 @@ export default function Navbar(props) {
               role="switch"
               id="flexSwitchCheckDefault"
             />
-            <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable Dark Mode</label>
+            <label className="form-check-label" htmlFor="flexSwitchCheckDefault">toggle Mode</label>
           </div>
         </div>
       </div>
